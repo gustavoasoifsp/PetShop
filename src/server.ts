@@ -16,4 +16,8 @@ server.use(express.static(path.join(__dirname, '../public')));
 
 server.use(mainRouther);
 
+server.use((req, res) => {
+    res.send('404 - Not Found');
+})
+
 server.listen(process.env.PORT);
