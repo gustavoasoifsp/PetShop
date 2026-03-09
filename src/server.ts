@@ -1,9 +1,8 @@
 import express from 'express';
-import dotenv from 'dotnev';
+import dotenv from 'dotenv';
 import mustache from 'mustache-express'
 import path from 'path'
-
-dotenv.config();
+import mainRouther from './routes/index'
 
 dotenv.config();
 
@@ -15,4 +14,6 @@ server.engine('mustache', mustache());
 
 server.use(express.static(path.join(__dirname, '../public')));
 
-server.listen(process.env.PORT)
+server.use(mainRouther);
+
+server.listen(process.env.PORT);
