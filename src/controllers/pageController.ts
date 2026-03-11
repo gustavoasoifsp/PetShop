@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 
 export const home = (req: Request, res: Response) => {
-    res.send('home');
+    // res.send('home');
+    res.render('home');
 };
 
 export const dogs = (req: Request, res: Response) => {
