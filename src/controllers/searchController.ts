@@ -1,9 +1,18 @@
 import { Request, Response } from 'express';
-import { Pet } from '../models/pet'
+import { Pet } from '../models/pet';
+import { createMenuObject } from '../helpers/createMenuObject';
 
 export const search = (req: Request, res: Response) => {
-	let query: string = req.query.q as string
-	if(!query)
-	res.send('Buscando.....');
-	// res.render('pages/search');
-}
+  let query: string = req.query.q as string;
+  console.log('Query: ', query);
+  if (!query) {
+    res.redirect('/');
+    return;
+  }
+  let list = Pet.getFromName(query);
+  res.render('pages/page', {
+    menu: createMenuObject(''),
+    list,
+    query
+  });
+};

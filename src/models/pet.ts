@@ -168,7 +168,7 @@ export const Pet = {
     },
 
     getFromType: (type: PetType): Pet[] => {
-        return data.filter(item => {
+        //return data.filter(item => {
             
             // Primeira forma
             // if(item.type === type) {
@@ -180,9 +180,10 @@ export const Pet = {
             // Segunda forma
             // return (item.type == type)
 
-            // Terceira forma
-            return data.filter(item => item.type === type);
-        })
+            
+        //})
+        // Terceira forma
+        return data.filter(item => item.type === type);
     },
 
     getFromName: (name: string): Pet[] => {
@@ -198,7 +199,7 @@ export const Pet = {
         // return (item.name.indexOf(name) > -1);
 
         // Terceira forma
-        return data.filter(item => item.name.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) > -1)
+        return data.filter(item => item.name.toLowerCase().indexOf(name.toLocaleLowerCase()) > -1)
         
         }
     }
